@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="edit_basic_info">Edit Basic Info</string>
+    <string name="pin_label">PIN</string>
+    <string name="update_btn">Update</string>
+    <string name="cancel_btn">Cancel</string>
+    <string name="edit">Edit</string>
+    <string name="change_password_hd">Change Password</string>
+    <string name="customer_support_hd">Customer Support</string>
+    <string name="raise_a_ticket_hd">Raise a ticket</string>
+    <string name="search_placeholder">Search</string>
+    <string name="filters">Filters</string>
+    <string name="clear_all">Clear All</string>
+    <string name="select_status">Select Status</string>
+    <string name="select_priority">Select Priority</string>
+    <string name="remove">Remove</string>
+    <string name="mb">" MB"</string>
+    <string name="id">ID</string>
+    <string name="get_in_touch">Get in Touch</string>
+    <string name="first_name">First Name</string>
+    <string name="e_g_john">E.g John</string>
+    <string name="last_name">Last Name</string>
+    <string name="smith">Smith</string>
+    <string name="company_name">Company Name</string>
+    <string name="abc_companyname_com">abc@companyname.com</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="_91_0000_000_000">+91 0000 000 000</string>
+    <string name="company_size">Company Size</string>
+    <string name="select">Select...</string>
+    <string name="country">Country</string>
+    <string name="what_would_you_like_to_discuss">What would you like to discuss?</string>
+    <string name="point_of_discussion">Tell us about your team and provide some details about a project or process you would like to discuss.</string>
+    <string name="submit">Submit</string>
+    <string name="looking_for_support">Looking for support?</string>
+    <string name="raise_a_ticket">Raise a ticket</string>
+    <string name="please_select_a_category">Please select a category</string>
+    <string name="please_select_a_priority">Please select a priority</string>
+    <string name="please_add_attachment">Please Add Attachment</string>
+    <string name="describe_your_issue_within_300_characters">Describe your issue within 300 characters</string>
+    <string name="any_additional_details">Any additional details...</string>
+    <string name="enter_title_name">Enter Title Name</string>
+    <string name="maximum_file_size_is_5_mb">Maximum file size is 5 MB</string>
+    <string name="hour_min_pattern">hh:mm:ss</string>
+    <string name="category">Category</string>
+    <string name="astrisk">*</string>
+    <string name="priority">Priority</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="maximum_5_files_can_be_uploaded">Maximum 5 files can be uploaded</string>
+    <string name="my_account">My Account</string>
+    <string name="logout">Logout</string>
+    <string name="profile_data_fetched_successfully">Profile data fetched successfully</string>
+    <string name="mobile_number_should_start_with_6_or_7_or_8_or_9">Mobile number should start with 6 or 7 or 8 or 9</string>
+    <string name="mobile_number_should_be_10_digits">Mobile number should be 10 digits</string>
+    <string name="pincode_should_be_6_digits">Pincode should be 6 digits</string>
+    <string name="please_enter_a_valid_email">Please enter a valid email</string>
+    <string name="please_enter_a_valid_name">Please enter a valid name</string>
+    <string name="profile_updated_successfully">Profile updated successfully</string>
+    <string name="name_cannot_be_empty">Name cannot be empty</string>
+    <string name="email_cannot_be_empty">Email cannot be empty</string>
+    <string name="mobile_number_cannot_be_empty">Mobile number cannot be empty</string>
+    <string name="city_cannot_be_empty">City cannot be empty</string>
+    <string name="country_cannot_be_empty">Country cannot be empty</string>
+    <string name="state_cannot_be_empty">State cannot be empty</string>
+    <string name="pincode_cannot_be_empty">Pincode cannot be empty</string>
+    <string name="invoicing_address_cannot_be_empty">Invoicing address cannot be empty</string>
+    <string name="_key">ID</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="kyc">KYC</string>
+    <string name="invoicing_address">Invoicing Address</string>
+    <string name="name_edit">Name</string>
+    <string name="please_enter_name">Please enter name</string>
+    <string name="invoicing_address_edit">Invoicing Address</string>
+    <string name="please_enter_address">Please enter address</string>
+    <string name="email_edit">Email</string>
+    <string name="please_enter_email">Please enter email</string>
+    <string name="mobile_number_edit">Mobile Number</string>
+    <string name="please_enter_mobile_number">Please enter mobile number</string>
+    <string name="country_edit">Country</string>
+    <string name="state_edit">State</string>
+    <string name="please_select_a_state">Please select a state</string>
+    <string name="please_enter_pincode">Please enter pincode</string>
+    <string name="city_edit">City</string>
+    <string name="please_select_a_city">Please select a city</string>
+    <string name="please_select_a_country">Please select a country</string>
+    <string name="attachment">Attachment</string>
+    <string name="general">General</string>
+    <string name="basic_info">Basic Info</string>
+    <string name="notification_setting">Notification Setting</string>
+    <string name="change_password">Change Password</string>
+    <string name="support">Support</string>
+    <string name="customer_support">Customer Support</string>
+    <string name="complete_full_kyc">Complete Full KYC</string>
+    <string name="company">Company</string>
+    <string name="about_us">About Us</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="terms_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="get_in_touch_profile">Get In Touch</string>
+    <string name="ticket_id">Ticket ID: %1$s</string>
+    <string name="show_older_messages">Show Older messages</string>
+    <string name="messages">Messages</string>
+    <string name="show_newer_messages">Show Latest messages</string>
+    <string name="reply_here">Reply here...</string>
+    <string name="send">Send</string>
+    <string name="ticket_id_detail">Ticket ID: %1$s</string>
+    <string name="re_open">Re-open</string>
+    <string name="close">Close</string>
+    <string name="request_title">Request Title</string>
+    <string name="category_detail">Category</string>
+    <string name="request_title_detail">Request Title</string>
+    <string name="description_detail">Description</string>
+    <string name="title_is_required">Title is required</string>
+    <string name="description_is_required">Description is required</string>
+    <string name="category_is_required">Category is required</string>
+    <string name="priority_is_required">Priority is required</string>
+    <string name="comments_fetched">Comments fetched successfully\n</string>
+    <string name="comments_updated">Comment posted successfully\n</string>
+    <string name="notification_settings">Notification Settings</string>
+    <string name="get_notified_about_important_stuff_via">Get notified about important stuff via</string>
+    <string name="update">Update</string>
+    <string name="notification_settings_updated_successfully">Notification settings updated successfully</string>
+    <string name="cancel">Cancel</string>
+    <string name="privacy_policy_hd">Privacy Policy</string>
+    <string name="about_us_hd">About Us</string>
+    <string name="terms_and_conditions_hd">Terms and Conditions</string>
+    <string name="we_ll_notify_you_via">We’ll notify you via</string>
+    <string name="email_notify">Email</string>
+    <string name="we_ll_notify_you_about">We’ll notify you about</string>
+    <string name="all_notifications">All notifications</string>
+    <string name="user_specific">User Specific</string>
+    <string name="mobile_notification">Mobile Notification</string>
+    <string name="you_can_adjust_these_settings_later">You can adjust these settings later.</string>
+    <string name="password_changed_successfully">Password_changed_successfully</string>
+
+    <string-array name="inquiry_types">
+        <item>Transactional related</item>
+        <item>Card activation/loading related</item>
+        <item>Card PIN not working</item>
+        <item>Card not working in ATM related inquiry</item>
+        <item>GPR card dispatch inquiry</item>
+    </string-array>
+    <string-array name="priority_levels">
+        <item>Urgent</item>
+        <item>High</item>
+        <item>Normal</item>
+        <item>Low</item>
+    </string-array>
+    <string-array name="indian_states">
+        <item>Andhra Pradesh</item>
+        <item>Arunachal Pradesh</item>
+        <item>Assam</item>
+        <item>Bihar</item>
+        <item>Chhattisgarh</item>
+        <item>Goa</item>
+        <item>Gujarat</item>
+        <item>Haryana</item>
+        <item>Himachal Pradesh</item>
+        <item>Jharkhand</item>
+        <item>Karnataka</item>
+        <item>Kerala</item>
+        <item>Madhya Pradesh</item>
+        <item>Maharashtra</item>
+        <item>Manipur</item>
+        <item>Meghalaya</item>
+        <item>Mizoram</item>
+        <item>Nagaland</item>
+        <item>Odisha</item>
+        <item>Punjab</item>
+        <item>Rajasthan</item>
+        <item>Sikkim</item>
+        <item>Tamil Nadu</item>
+        <item>Telangana</item>
+        <item>Tripura</item>
+        <item>Uttar Pradesh</item>
+        <item>Uttarakhand</item>
+        <item>West Bengal</item>
+        <item>Andaman and Nicobar Islands</item>
+        <item>Chandigarh</item>
+        <item>Dadra and Nagar Haveli and Daman and Diu</item>
+        <item>Delhi</item>
+        <item>Lakshadweep</item>
+        <item>Ladakh</item>
+        <item>Puducherry</item>
+        <item>Jammu and Kashmir</item>
+    </string-array>
+
+</resources>

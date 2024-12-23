@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ovd">
+        <item>Aadhhar</item>
+        <item>Paasport</item>
+        <item>Driving License</item>
+        <item>Voter ID</item>
+    </string-array>
+</resources>

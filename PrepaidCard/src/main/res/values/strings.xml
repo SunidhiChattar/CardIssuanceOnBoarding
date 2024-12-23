@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="current_password">Current Password</string>
+    <string name="enter_current_password">Enter Current Password</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="cancel">Cancel</string>
+    <string name="bene_phone_number">Beneficiary Phone Number</string>
+    <string name="card_name">Card Name</string>
+    <string name="mandate_for_has_been_cancelled">Mandate for %1$s has been cancelled</string>
+    <string name="card_reference_number_must_be_12_digits_long">Card reference number must be 12 digits long</string>
+    <string name="pin_mismatch">Pin doesnt match\n</string>
+    <string name="pinlength">Pin must be four digits long\n</string>
+    <string name="astrisk">*\n</string>
+    <string name="do_you_want_to_re_activate_your_card">Do you want to re-activate your card?</string>
+    <string name="re_activate_the_card">Re-activate the Card?</string>
+    <string name="do_you_want_to_activate_your_card">Do you want to activate your card?</string>
+    <string name="activate_the_card">Activate the Card?</string>
+    <string name="re_activate">Re-Activate</string>
+    <string name="activate">Activate</string>
+</resources>

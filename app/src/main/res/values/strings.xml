@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Card OnBoarding</string>
+    <string name="no_internet_message">Internet connection not available</string>
+    <string name="get_started">Get Started</string>
+    <string name="unlock_the_world_of_possibilities">Unlock the World of Possibilities</string>
+    <string name="purchase_add_modify_or_share_your_cards_seamlessly_with_the_card_issuance_app">"Purchase, add, modify or share your cards seamlessly with the Card Issuance App "</string>
+    <string name="seamlessly_manage_your_prepaid_cards">Seamlessly Manage Your Prepaid Cards</string>
+    <string name="view_balances_track_spending_and_update_card_information_with_ease">View Balances, Track Spending, and Update Card Information with Ease</string>
+    <string name="stay_on_top_of_your_prepaid_cards">Stay on Top of Your Prepaid Cards</string>
+    <string name="efficiently_oversee_your_prepaid_cards">Efficiently Oversee Your Prepaid Cards</string>
+    <string name="monitor_transactions_check_balances_and_manage_card_settings_from_one_central_hub">Monitor Transactions, Check Balances, and Manage Card Settings from One Central Hub</string>
+    <string name="iserveu">iserveu</string>
+    <string name="skip">Skip</string>
+    <string name="splash">splash</string>
+    <string name="title_activity_crash_handling">CrashHandlingActivity</string>
+    <string name="unknown_exception">Exception</string>
+
+    <string name="unknown_source_permission_message">Please grant permission to install the latest version update to ensure that your device has access to the newest features and improvements.</string>
+    <string name="unknown_source_permission_title">Unknown Source Permission !!!</string>
+    <string name="allow">Allow</string>
+    <string name="update">Update</string>
+    <string name="downloading_app_update_text">Great, the latest version of the app is now downloading. This update includes some exciting new features and enhancements, so you can enjoy an even better user experience. Please be patient while the download completes.</string>
+    <string name="after_update_text">Congratulations on successfully downloading the latest version of the app! To complete the installation process, please follow the on-screen instructions. Once the installation is complete, you can open the app and start using all the new features and improvements.</string>
+    <string name="before_update_text">Hey there, a new update is now available for download. Make sure to update your app to access the latest features and improvements!</string>
+    <string name="new_update_title">Get more with the new update</string>
+    <string name="new_update_message">Our latest update includes a host of exciting new features that are sure to enhance your experience and take your productivity to the next level! </string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.CardIssuance" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:forceDarkAllowed">false</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@null
+        </item> <!-- Avoid animated icon -->
+        <item name="android:windowSplashScreenBackground">@android:color/transparent
+        </item> <!-- Avoid background color -->
+    </style>
+</resources>

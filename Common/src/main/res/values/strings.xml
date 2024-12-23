@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="signin_hd">Sign in to your account</string>
+    <string name="enter_cred_body"><![CDATA[Please enter your Credentials to proceed & have access to all our services.]]></string>
+    <string name="sign_up">" Sign Up"</string>
+    <string name="register_pre">Don’t have an account?</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="sign_in_btn">Sign In</string>
+    <string name="remember_check">Remember me</string>
+    <string name="show">Show</string>
+    <string name="hide">Hide</string>
+    <string name="user_name_inp">User Name</string>
+    <string name="password_inp">Password</string>
+    <string name="lato_font">Lato</string>
+    <string name="forgot_password_hd">Forgot Password</string>
+    <string name="forgot_pswd_text">Lost your password? No worries. Enter your email, and we\'ll help you reset it .</string>
+    <string name="proceed_btn">Proceed</string>
+    <string name="remembered_password">Remembered Password?</string>
+    <string name="log_in">" Log In"</string>
+    <string name="phone_verification_hd">Phone Verification</string>
+    <string name="phn_veriy_body">To ensure your account security, please verify your phone number by entering the OTP (One-Time Password) sent to your registered mobile.</string>
+    <string name="verify_btn">Verify</string>
+    <string name="resend_otp">Resend OTP</string>
+    <string name="phn_verify_bottom">If you encounter any issues or need assistance, don\'t hesitate to reach out to our support team. We\'re here to help!</string>
+    <string name="pswd_chng_success">Success! Your Password Has Been Changed</string>
+    <string name="allset">You’re All Set with Your New Password</string>
+    <string name="login">Login</string>
+    <string name="invalid_password">Invalid Password</string>
+    <string name="otp_must_be_6_digits">OTP must be 6 digits</string>
+    <string name="empty" />
+    <string name="password_nomatch">Password and Confirm Password should be same</string>
+    <string name="reset_password_btn">Reset Password</string>
+    <string name="cancel_btn">Cancel</string>
+    <string name="password_label">Password</string>
+    <string name="protect_additonal_info">Protect Your Account by Setting a Strong, New Password</string>
+    <string name="create_a_new_password">Create a New Password</string>
+    <string name="confirm_password_labrl">Confirm Password</string>
+    <string name="username_placeholder">Enter User Name</string>
+    <string name="password_placeholder">Enter Password</string>
+    <string name="copyright">\@ 2020 iServeU Technologies India Private Limited</string>
+    <string name="empty_field">Field cannot be empty</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="permission_denied">Permission Denied</string>
+    <string name="get_accounts_contacts">Get Accounts/Contacts</string>
+    <string name="to_create_an_account_using_the_google_accounts_available_in_device">To create an account using the google accounts available in device</string>
+    <string name="to_allow_read_only_access_to_phone_state_including_the_phone_number_of_the_device_and_current_cellular_network_information">To allow read only access to phone state, including the phone number of the device and current cellular network information</string>
+    <string name="to_access_the_media_and_files_to_save_in_internal_storage">To access the media and files to save in internal storage</string>
+    <string name="media_and_storage_files">Media and Storage Files</string>
+    <string name="location">Location</string>
+    <string name="to_verify_your_address_for_application">To Verify your address for application</string>
+    <string name="for_the_app_to_function_properly_we_might_need_the_following_permission">For the app to function properly, we might need the following permission.</string>
+    <string name="enter_your_details_below">Enter your details below</string>
+    <string name="username">Username</string>
+    <string name="device_info">Device Info</string>
+    <string name="unsupported_type">Unsupported type</string>
+    <string name="permission_required">Required Permissions</string>
+    <string name="set_new_password">Set new password</string>
+    <string name="new_password">New Password</string>
+    <string name="invalid_username">Invalid Username</string>
+    <string name="login_success">Login Success!</string>
+    <string name="loading_please_wait">Loading please wait...</string>
+    <string name="otp_sent_successfully">OTP sent successfully</string>
+    <string name="a_temporary_password_has_been_sent_try_login">A temporary password has been sent.Try login</string>
+    <string name="set_password_successfully">Set password successfully</string>
+    <string name="username_emoty">Please enter username</string>
+    <string name="current_password">Current Password</string>
+    <string name="enter_current_password">Enter Current Password</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="cancel">Cancel</string>
+    <string name="cancel_mandate">Cancel Mandate?</string>
+    <string name="worried_about_unauthorized_charges_do_you_want_to_block_your_card_now_for_enhanced_security_and_financial_protection">Worried About Unauthorized Charges? Do You Want to Block Your Card Now for Enhanced Security and Financial Protection?</string>
+    <string name="go_back">Go Back</string>
+    <string name="title_error">" \"Title should not exceed 150 characters\"\n"</string>
+    <string name="sucess">Success</string>
+    <string name="ticket_raise_success">Ticket raised successfully\n</string>
+    <string name="concerned_about_security_would_you_like_to_deactivate_your_card_to_temporarily_suspend_transactions_and_protect_your_account">Concerned About Security? Would You Like to Deactivate Your Card to Temporarily Suspend Transactions and Protect Your Account?</string>
+    <string name="deactivate">Deactivate</string>
+    <string name="deactivate_your_card">Deactivate Your Card?</string>
+    <string name="activate_your_card">Activate Your Card?</string>
+    <string name="block_your_card">Block Your Card?</string>
+    <string name="unblock_your_card">Unblock Your Card?</string>
+    <string name="mark_card_as_lost">Mark card as lost?</string>
+    <string name="mark_card_as_stolen">Mark card as stolen?</string>
+    <string name="mark_card_as_damaged">Mark card as Damaged?</string>
+    <string-array name="inquiry_types">
+        <item>Transactional related</item>
+        <item>Card activation/loading related</item>
+        <item>Card PIN not working</item>
+        <item>Card not working in ATM related inquiry</item>
+        <item>GPR card dispatch inquiry</item>
+    </string-array>
+    <string name="edit_basic_info">Edit Basic Info</string>
+    <string name="pin_label">PIN</string>
+    <string name="update_btn">Update</string>
+    <!--    <string name="cancel_btn">Cancel</string>-->
+    <string name="edit">Edit</string>
+    <string name="change_password_hd">Change Password</string>
+    <string name="customer_support_hd">Customer Support</string>
+    <string name="raise_a_ticket_hd">Raise a ticket</string>
+    <string name="search_placeholder">Search</string>
+    <string name="filters">Filters</string>
+    <string name="clear_all">Clear All</string>
+    <string name="select_status">Select Status</string>
+    <string name="select_priority">Select Priority</string>
+    <string name="remove">Remove</string>
+    <string name="mb">" MB"</string>
+    <string name="id">ID</string>
+    <string name="get_in_touch">Get in Touch</string>
+    <string name="first_name">First Name</string>
+    <string name="e_g_john">E.g John</string>
+    <string name="last_name">Last Name</string>
+    <string name="smith">Smith</string>
+    <string name="company_name">Company Name</string>
+    <string name="abc_companyname_com">abc@companyname.com</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="_91_0000_000_000">+91 0000 000 000</string>
+    <string name="company_size">Company Size</string>
+    <string name="select">Select...</string>
+    <string name="country">Country</string>
+    <string name="what_would_you_like_to_discuss">What would you like to discuss?</string>
+    <string name="point_of_discussion">Tell us about your team and provide some details about a project or process you would like to discuss.</string>
+    <string name="submit">Submit</string>
+    <string name="looking_for_support">Looking for support?</string>
+    <string name="raise_a_ticket">Raise a ticket</string>
+    <string name="please_select_a_category">Please select a category</string>
+    <string name="please_select_a_priority">Please select a priority</string>
+    <string name="please_add_attachment">Please Add Attachment</string>
+    <string name="describe_your_issue_within_300_characters">Describe your issue within 300 characters</string>
+    <string name="any_additional_details">Any additional details...</string>
+    <string name="enter_title_name">Enter Title Name</string>
+    <string name="maximum_file_size_is_5_mb">Maximum file size is 5 MB</string>
+    <string name="hour_min_pattern">hh:mm:ss</string>
+    <string name="category">Category</string>
+    <string name="astrisk">*</string>
+    <string name="priority">Priority</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="maximum_5_files_can_be_uploaded">Maximum 5 files can be uploaded</string>
+    <string name="my_account">My Account</string>
+    <string name="logout">Logout</string>
+    <string name="profile_data_fetched_successfully">Profile data fetched successfully</string>
+    <string name="mobile_number_should_start_with_6_or_7_or_8_or_9">Mobile number should start with 6 or 7 or 8 or 9</string>
+    <string name="mobile_number_should_be_10_digits">Mobile number should be 10 digits</string>
+    <string name="pincode_should_be_6_digits">Pincode should be 6 digits</string>
+    <string name="please_enter_a_valid_email">Please enter a valid email</string>
+    <string name="please_enter_a_valid_name">Please enter a valid name</string>
+    <string name="profile_updated_successfully">Profile updated successfully</string>
+    <string name="name_cannot_be_empty">Name cannot be empty</string>
+    <string name="email_cannot_be_empty">Email cannot be empty</string>
+    <string name="mobile_number_cannot_be_empty">Mobile number cannot be empty</string>
+    <string name="city_cannot_be_empty">City cannot be empty</string>
+    <string name="country_cannot_be_empty">Country cannot be empty</string>
+    <string name="state_cannot_be_empty">State cannot be empty</string>
+    <string name="pincode_cannot_be_empty">Pincode cannot be empty</string>
+    <string name="invoicing_address_cannot_be_empty">Invoicing address cannot be empty</string>
+    <string name="_key">ID</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="kyc">KYC</string>
+    <string name="invoicing_address">Invoicing Address</string>
+    <string name="name_edit">Name</string>
+    <string name="please_enter_name">Please enter name</string>
+    <string name="invoicing_address_edit">Invoicing Address</string>
+    <string name="please_enter_address">Please enter address</string>
+    <string name="email_edit">Email</string>
+    <string name="please_enter_email">Please enter email</string>
+    <string name="mobile_number_edit">Mobile Number</string>
+    <string name="please_enter_mobile_number">Please enter mobile number</string>
+    <string name="country_edit">Country</string>
+    <string name="state_edit">State</string>
+    <string name="please_select_a_state">Please select a state</string>
+    <string name="please_enter_pincode">Please enter pincode</string>
+    <string name="city_edit">City</string>
+    <string name="please_select_a_city">Please select a city</string>
+    <string name="please_select_a_country">Please select a country</string>
+    <string name="attachment">Attachment</string>
+    <string name="general">General</string>
+    <string name="basic_info">Basic Info</string>
+    <string name="notification_setting">Notification Setting</string>
+    <string name="change_password">Change Password</string>
+    <string name="support">Support</string>
+    <string name="customer_support">Customer Support</string>
+    <string name="complete_full_kyc">Complete Full KYC</string>
+    <string name="company">Company</string>
+    <string name="about_us">About Us</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="terms_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="get_in_touch_profile">Get In Touch</string>
+    <string name="ticket_id">Ticket ID: %1$s</string>
+    <string name="show_older_messages">Show Older messages</string>
+    <string name="messages">Messages</string>
+    <string name="show_newer_messages">Show Latest messages</string>
+    <string name="reply_here">Reply here...</string>
+    <string name="send">Send</string>
+    <string name="ticket_id_detail">Ticket ID: %1$s</string>
+    <string name="re_open">Re-open</string>
+    <string name="close">Close</string>
+    <string name="request_title">Request Title</string>
+    <string name="category_detail">Category</string>
+    <string name="request_title_detail">Request Title</string>
+    <string name="description_detail">Description</string>
+    <string name="title_is_required">Title is required</string>
+    <string name="description_is_required">Description is required</string>
+    <string name="category_is_required">Category is required</string>
+    <string name="priority_is_required">Priority is required</string>
+    <string name="comments_fetched">Comments fetched successfully\n</string>
+    <string name="comments_updated">Comment posted successfully\n</string>
+    <string name="notification_settings">Notification Settings</string>
+    <string name="get_notified_about_important_stuff_via">Get notified about important stuff via</string>
+    <string name="update">Update</string>
+    <string name="notification_settings_updated_successfully">Notification settings updated successfully</string>
+    <!--    <string name="cancel">Cancel</string>-->
+    <string name="privacy_policy_hd">Privacy Policy</string>
+    <string name="about_us_hd">About Us</string>
+    <string name="terms_and_conditions_hd">Terms and Conditions</string>
+    <string name="we_ll_notify_you_via">We’ll notify you via</string>
+    <string name="email_notify">Email</string>
+    <string name="we_ll_notify_you_about">We’ll notify you about</string>
+    <string name="all_notifications">All notifications</string>
+    <string name="user_specific">User Specific</string>
+    <string name="mobile_notification">Mobile Notification</string>
+    <string name="you_can_adjust_these_settings_later">You can adjust these settings later.</string>
+    <string name="password_changed_successfully">Password_changed_successfully</string>
+    <string name="do_you_want_to_block_your_card_now_for_enhanced_security_and_financial_protection">Do You Want to Block Your Card Now for Enhanced Security and Financial Protection?</string>
+    <string name="do_you_want_to_mark_your_card_as_damaged">Do You Want to mark Your Card as Damaged?</string>
+    <string name="mark_as_lost">Mark as Lost </string>
+    <string name="mark_as_stolen">Mark as  Stolen</string>
+    <string name="mark_as_damaged">Mark as Damaged</string>
+    <string name="block">Block</string>
+    <string name="web_client_id">937673402936-hpikk5q7hie1tj06v2thrrfqcv56t0km.apps.googleusercontent.com</string>
+    <string name="please_select_your_gender">Please select a gender</string>
+    <string name="please_enter_your_date_of_birth">Please enter your date of birth\n</string>
+    <string name="please_enter_your_pin_code">Please enter your PIN code\n</string>
+    <string name="please_enter_your_email">Please enter your email</string>
+    <string name="please_enter_your_name">Please enter your full name\n</string>
+    <string name="please_enter_your_ovd_number">Please enter a OVD Number</string>
+    <string name="please_select_your_ovd_type">Please select a OVD Type</string>
+
+    <!--    <string-array name="inquiry_types">-->
+    <!--        <item>Transactional related</item>-->
+    <!--        <item>Card activation/loading related</item>-->
+    <!--        <item>Card PIN not working</item>-->
+    <!--        <item>Card not working in ATM related inquiry</item>-->
+    <!--        <item>GPR card dispatch inquiry</item>-->
+    <!--    </string-array>-->
+    <string-array name="priority_levels">
+        <item>Urgent</item>
+        <item>High</item>
+        <item>Normal</item>
+        <item>Low</item>
+    </string-array>
+    <string-array name="indian_states">
+        <item>Andhra Pradesh</item>
+        <item>Arunachal Pradesh</item>
+        <item>Assam</item>
+        <item>Bihar</item>
+        <item>Chhattisgarh</item>
+        <item>Goa</item>
+        <item>Gujarat</item>
+        <item>Haryana</item>
+        <item>Himachal Pradesh</item>
+        <item>Jharkhand</item>
+        <item>Karnataka</item>
+        <item>Kerala</item>
+        <item>Madhya Pradesh</item>
+        <item>Maharashtra</item>
+        <item>Manipur</item>
+        <item>Meghalaya</item>
+        <item>Mizoram</item>
+        <item>Nagaland</item>
+        <item>Odisha</item>
+        <item>Punjab</item>
+        <item>Rajasthan</item>
+        <item>Sikkim</item>
+        <item>Tamil Nadu</item>
+        <item>Telangana</item>
+        <item>Tripura</item>
+        <item>Uttar Pradesh</item>
+        <item>Uttarakhand</item>
+        <item>West Bengal</item>
+        <item>Andaman and Nicobar Islands</item>
+        <item>Chandigarh</item>
+        <item>Dadra and Nagar Haveli and Daman and Diu</item>
+        <item>Delhi</item>
+        <item>Lakshadweep</item>
+        <item>Ladakh</item>
+        <item>Puducherry</item>
+        <item>Jammu and Kashmir</item>
+    </string-array>
+
+</resources>
+
