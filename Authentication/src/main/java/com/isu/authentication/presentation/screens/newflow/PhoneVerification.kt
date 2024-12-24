@@ -1,5 +1,8 @@
 package com.isu.authentication.presentation.screens.newflow
 
+import android.app.Activity
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -69,6 +72,12 @@ fun PhoneVerificationScreen(
         context.contentResolver,
         android.provider.Settings.Secure.ANDROID_ID
     )
+    val launcherForCardSDK = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        // Handle the result
+
+    }
 
 
     // Clear fields on launch
@@ -94,6 +103,7 @@ fun PhoneVerificationScreen(
 
     Scaffold(modifier = modifier, containerColor = Color.White) { paddingValues ->
         KeyBoardAwareScreen(
+
             modifier = Modifier
                 .padding(22.dp, paddingValues.calculateTopPadding(), 22.dp)
                 .heightIn(screenHeight.dp),
@@ -133,7 +143,7 @@ fun PhoneVerificationScreen(
 
                                 focusManager.clearFocus()
                                 scope.launch {
-                                    onEvent(CommonScreenEvents.OnClick<Any>(type = RegistrationButtonType.OtpVerificationButton))
+                                    onEvent(CommonScreenEvents.OnClick<Any>(type = RegistrationButtonType.OtpVerificationButton(context,launcherForCardSDK)))
 //                                    viewModel.verifyEmail(androidId)
 
                                 }
@@ -168,6 +178,9 @@ fun PhoneVerificationScreen(
                     }
                 }
             },
+            backHandler = {
+                (context as Activity).finish()
+            }
         )
     }
 }

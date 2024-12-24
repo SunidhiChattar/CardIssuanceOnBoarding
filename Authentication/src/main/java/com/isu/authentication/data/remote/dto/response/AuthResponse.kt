@@ -13,7 +13,7 @@ data class AuthResponse(
     @SerializedName("bankCode")
     val bankCode: String?, // fino
     @SerializedName("created")
-    val created: Long?, // 1728369255931
+    val created: String?, // 1728369255931
     @SerializedName("expires_in")
     val expiresIn: Int?, // 1799
     @SerializedName("is2FAEnabled")

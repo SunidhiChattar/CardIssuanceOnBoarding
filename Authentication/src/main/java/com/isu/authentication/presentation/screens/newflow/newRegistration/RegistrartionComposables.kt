@@ -30,7 +30,7 @@ sealed interface RegistrationButtonType : Clickables {
     data object ResendOTP : RegistrationButtonType
     data object ResendTwoFAOTP : RegistrationButtonType
     data object EnterPhoneNumberSubmitButton : RegistrationButtonType
-    data object OtpVerificationButton : RegistrationButtonType
+    data class OtpVerificationButton(val context : Context,val launcher: ManagedActivityResultLauncher<Intent, ActivityResult>) : RegistrationButtonType
     data object TwoFAOtpVerificationButton : RegistrationButtonType
     data class KycOtpGenerationButton(val context : Context,val launcher: ManagedActivityResultLauncher<Intent, ActivityResult>) : RegistrationButtonType
     data object ResendChangeDeviceBindingOTp : RegistrationButtonType

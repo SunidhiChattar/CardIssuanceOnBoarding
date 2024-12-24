@@ -12,5 +12,13 @@ data class CustomerInitiateResponse(
     @SerializedName("statusCode")
     val statusCode: Int?, // 0
     @SerializedName("statusDesc")
-    val statusDesc: String? // Customer onboarding initiated successfully
+    val statusDesc: String?, // Customer onboarding initiated successfully
+    @SerializedName("data")
+    val data:CustomerInitiateResponseData?
+
+)
+@Keep
+data class CustomerInitiateResponseData(
+    @SerializedName("otpRefId")
+    val otpRefId :String?=""
 )

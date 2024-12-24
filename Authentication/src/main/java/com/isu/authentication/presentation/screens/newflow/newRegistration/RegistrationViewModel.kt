@@ -76,6 +76,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import org.json.JSONObject
 import javax.inject.Inject
+import kotlin.math.log
 import kotlin.random.Random
 
 
@@ -133,6 +134,7 @@ class RegistrationViewModel @Inject constructor(
             handleFlow(apiCall = {
                 profileDetaisFetchForBulk.invoke(request)
             }, scope = viewModelScope, dispatcher = Dispatchers.IO, onSuccesss = {resp->
+                Log.d("BULK", "profileDetailsFetchForBulk: ${resp}")
                 if(resp?.statusCode==0){
                     viewModelScope.launch {
                         ShowSnackBarEvent.helper.emit(
@@ -221,6 +223,7 @@ class RegistrationViewModel @Inject constructor(
                 scope = viewModelScope,
                 dispatcher = Dispatchers.Main,
                 onSuccesss = {
+                    Log.d("SDK", "customerOnBoardingAPI:$it ")
                   onSuccess(it)
                 },
                 onFailure = {_,msg,_->
@@ -322,6 +325,7 @@ class RegistrationViewModel @Inject constructor(
                      * via bulk or normal onboarding
                      */
                     if(customerIsBulkOnBoarded(it)){
+                        Log.d("BULK", "handleApiCall: ")
                         customerIsBulkOnBoarded.value=true
                         if(needOtpVerification(it)){
                             /**
@@ -330,6 +334,7 @@ class RegistrationViewModel @Inject constructor(
                              * call resend otp and pass to otp verification screen
                              */
                             resendOtp(onSuccess = {
+                                Log.d("BULK", "handleApiCall: ${it}")
                                 viewModelScope.launch {
                                     NavigationEvent.helper.navigateTo(AuthenticationScreens.PhoneVerificationScreen)
                                 }
@@ -344,8 +349,9 @@ class RegistrationViewModel @Inject constructor(
                              * navigate to personal detail screen
                              */
                             profileDetailsFetchForBulk {
+                                Log.d("BULK", "handleApiCall: $it")
                                 viewModelScope.launch {
-                                    ShowSnackBarEvent.helper.emit(ShowSnackBarEvent.show(SnackBarType.ErrorSnackBar,UiText.DynamicString("Invalid response")))
+                                    ShowSnackBarEvent.helper.emit(ShowSnackBarEvent.show(SnackBarType.SuccessSnackBar,UiText.DynamicString("Details fetched")))
                                 }
                             }
 
@@ -377,7 +383,7 @@ class RegistrationViewModel @Inject constructor(
 
     private fun customerIsBulkOnBoarded(it: StatusCheckResponse): Boolean {
         val dataToCheck=it.userDetails
-        return  dataToCheck?.status=="SUCCESS" && dataToCheck.statusCode==4
+        return  dataToCheck?.status=="SUCCESS" && dataToCheck.statusCode==3
     }
 
     private fun needOtpVerification(statResponse: StatusCheckResponse): Boolean {
@@ -400,10 +406,11 @@ class RegistrationViewModel @Inject constructor(
                 "OTP_REQUEST",
                 "resendOtp: dataStore:$number ${registrationState.value.phoneNumber}"
             )
+            otpRefID.value="487987"
             val otpRefIdValue = try {
-                otpRefID.value.toInt()
+                otpRefID.value
             } catch (e: Exception) {
-                172668
+                "172668"
             }
             val latLong = LatLongFlowProvider.latLongFlow.first()
             val request = ResendSignUpOtp(
@@ -417,6 +424,7 @@ class RegistrationViewModel @Inject constructor(
                 resendOtpUseCase.invoke(request)
             }, scope = viewModelScope, dispatcher = Dispatchers.IO,
                 onSuccesss = {
+                    Log.d("RESEND", "resendOtp: ${it}")
                 otpRefID.value = it?.data?.otpRefID.toString()
 
                 viewModelScope.launch {
@@ -498,61 +506,8 @@ class RegistrationViewModel @Inject constructor(
 
                 if (allKycScreenValid()) {
                     Log.d("OTP_VERIFY", "handleRegistrationButtonClicks: ")
-
-                    if (customerIsBulkOnBoarded.value) {
-
-
-                        callBulkOnBoardGenerateOTPCustomer(onSuccess = {
-                            /**
-                             * here statusCheck is called
-                             * to check if customer is directly onBoarded i.e. SUCCESS 0 Scenario
-                             * or OTP verification is required i.e.
-                             * else
-                             *
-                             *
-                             */
-                            callStatusCheckApi(
-                                onSuccess = {
-                                    /**
-                                     * if customer is directly onBoarded
-                                     * i.e SUCCESS 0
-                                     * call fetch auth token and
-                                     * send to card SDK
-                                     */
-                                    if(customerIsAlreadyOnboarded(it)){
-                                        Log.d("OTP_VERIFY", "handleRegistrationButtonClicks: if")
-                                        fetctAuthToken(onSuccess = {
-                                            viewModelScope.launch {
-                                                val clientId=dataStoreManager.getPreferenceValue(PreferencesKeys.CLIENT_ID)
-                                                val clientSecret=dataStoreManager.getPreferenceValue(PreferencesKeys.CLIENT_SECRET)
-
-                                                sendToSDK(type.context,type.launcher,DataForCardSDK(jwtToken = it?.accessToken, clientID = clientId, clientSecret = clientSecret.toString(), deviceChanged = false),)
-                                            }
-
-                                        }, onFailure = {
-
-                                        })
-
-
-                                    }else
-                                    {
-                                        /**
-                                         * otp will be generated
-                                         * so send to otp verification
-                                         * page
-                                         */
-
-                                        Log.d("OTP_VERIFY", "handleRegistrationButtonClicks:else ")
-                                        viewModelScope.launch{
-                                            NavigationEvent.helper.navigateTo(AuthenticationScreens.PhoneVerificationScreen)
-                                        }
-
-                                    }
-                                }
-                            )
-                        }, onFailure = {})
-                    } else {
-                        customerOnBoardingAPI(onSuccess = {
+                    customerOnBoardingAPI(onSuccess = {
+                            otpRefID.value=it?.data?.otpRefId?:"048984"
                             Log.d("OTP_VERIFY", "handleRegistrationButtonClicks: ")
                             /**
                              * here statusCheck is called
@@ -571,112 +526,140 @@ class RegistrationViewModel @Inject constructor(
                                  */
                                 if(customerIsAlreadyOnboarded(it)){
                                     Log.d("OTP_VERIFY", "handleRegistrationButtonClicks: if")
-                                    fetctAuthToken(onSuccess = {
-                                       viewModelScope.launch {
+                                    fetchAuthToken(onSuccess = {
+                                        viewModelScope.launch {
 
 
-                                           val clientId =
-                                               dataStoreManager.getPreferenceValue(PreferencesKeys.CLIENT_ID)
-                                           val clientSecret =
-                                               dataStoreManager.getPreferenceValue(PreferencesKeys.CLIENT_SECRET)
+                                            val clientId =
+                                                dataStoreManager.getPreferenceValue(PreferencesKeys.CLIENT_ID)
+                                            val clientSecret =
+                                                dataStoreManager.getPreferenceValue(PreferencesKeys.CLIENT_SECRET)
 
-                                           sendToSDK(
-                                               type.context,
-                                               type.launcher,
-                                               DataForCardSDK(
-                                                   jwtToken = it?.accessToken,
-                                                   clientID = clientId,
-                                                   clientSecret = clientSecret.toString(),
-                                                   deviceChanged = false
-                                               ),
-                                           )
-                                       }
+                                            val userMobileNumber=dataStoreManager.getPreferenceValue(PreferencesKeys.USER_MOBILE_NUMBER)
+                                            Log.d("DATA_SDK", "handleRegistrationButtonClicks: ${clientId} ${clientSecret} ${userMobileNumber}")
+                                            sendToSDK(
+                                                type.context,
+                                                type.launcher,
+                                                DataForCardSDK(
+                                                    jwtToken = it?.accessToken,
+                                                    clientID = clientId,
+                                                    clientSecret = clientSecret.toString(),
+                                                    deviceChanged = false,
+                                                    userMobileNumber = userMobileNumber.toString()
+                                                ),
+                                            )
+                                        }
                                     }, onFailure = {
 
                                     })
 
-                                }else
-                                {
+                                }else {
                                     /**
                                      * otp will be generated
                                      * so send to otp verification
                                      * page
                                      */
-
-                                    Log.d("OTP_VERIFY", "handleRegistrationButtonClicks:else ")
-                                    viewModelScope.launch{
-                                        NavigationEvent.helper.navigateTo(AuthenticationScreens.PhoneVerificationScreen)
+                                    if(needOtpVerification(it)){
+                                        Log.d("OTP_VERIFY", "handleRegistrationButtonClicks:else ")
+                                        viewModelScope.launch{
+                                            NavigationEvent.helper.navigateTo(AuthenticationScreens.PhoneVerificationScreen)
+                                        }
+                                    }else{
+                                        viewModelScope.launch{
+                                            ShowSnackBarEvent.helper.emit(ShowSnackBarEvent.show(SnackBarType.ErrorSnackBar,UiText.DynamicString(
+                                                it.userDetails?.statusDesc?:"Invalid Response"
+                                            )))
+                                        }
                                     }
+
+
 
                                 }
                             }
-
-                         /*   {
-                                val cardDetails =
-                                    it.data?.getOrNull(0)?.cardDetails?.getOrNull(0)?.card?.getOrNull(
-                                        0
-                                    )
-                                if (cardDetails?.statusCode == 2 && cardDetails.status == "PENDING") {
-                                    viewModelScope.launch {
-                                        NavigationEvent.helper.emit(
-                                            NavigationEvent.NavigateToNextScreen(
-                                                AuthenticationScreens.PhoneVerificationScreen
-                                            )
-                                        )
-                                    }
-                                } else if (cardDetails?.statusCode == 0 && cardDetails.status == "SUCCESS") {
-                                    fetctAuthToken(onSuccess = {
-                                        viewModelScope.launch {
-                                            NavigationEvent.helper.emit(
-                                                NavigationEvent.NavigateToNextScreen(
-                                                    ProfileScreen.DashBoardScreen
-                                                )
-                                            )
-                                        }
-                                    }, onFailure = {})
-
-                                }
-
-                            }*/
-
                         })
-                    }
-
 
                 }
             }
 
-            RegistrationButtonType.OtpVerificationButton -> {
+           is RegistrationButtonType.OtpVerificationButton -> {
                 if (otpFieldValid()) {
                     Log.d("OTP_VERIFY", "handleRegistrationButtonClicks: ")
-                    if (customerIsBulkOnBoarded.value) {
-                        /**
-                         *
-                         * call profileDetailsFetchFor bulk
-                         * to fill data
-                         */
-                        callBulkOnBoardVerifyOtp(onSuccess = {
-                            customerIsBulkOnBoarded.value = false
-                            callStatusCheckApi{
-                                /**
-                                 * if success go to
-                                 * Card SDK
-                                 */
-                            }
-                        },
-                            onFailure = {})
-                    } else {
-                        callVerifySelfSignInAPi(onSuccess = {
 
-                          callStatusCheckApi {
+                        callVerifySelfSignInAPi(onSuccess = {
+                            callStatusCheckApi {
+                                Log.d("LAT", "handleRegistrationButtonClicks:onoarded ")
                               /**
                                * if success go to
                                * Card SDK
                                */
+                              if(customerIsAlreadyOnboarded(it)){
+                                  Log.d("LAT", "handleRegistrationButtonClicks:onoarded ")
+
+                                  fetchAuthToken(onSuccess = {
+                                      Log.d("LAT", "handleRegistrationButtonClicks:onoarded ")
+                                      viewModelScope.launch {
+                                          val clientId =
+                                              dataStoreManager.getPreferenceValue(PreferencesKeys.CLIENT_ID)
+                                          val clientSecret =
+                                              dataStoreManager.getPreferenceValue(PreferencesKeys.CLIENT_SECRET)
+
+                                          val userMobileNumber=dataStoreManager.getPreferenceValue(PreferencesKeys.USER_MOBILE_NUMBER)
+                                          Log.d("DATA_SDK", "handleRegistrationButtonClicks: ${clientId} ${clientSecret} ${userMobileNumber}")
+                                          sendToSDK(
+                                              type.context,
+                                              type.launcher,
+                                              DataForCardSDK(
+                                                  jwtToken = it?.accessToken,
+                                                  clientID = clientId,
+                                                  clientSecret = clientSecret.toString(),
+                                                  deviceChanged = false,
+                                                  userMobileNumber = userMobileNumber.toString()
+                                              ),
+                                          )
+                                      }
+                                  }, onFailure = {
+
+                                  })
+                              }
                           }
 
+                        },
+                            onFailure = {
+                            callStatusCheckApi {
+                                /**
+                                 * if success go to
+                                 * Card SDK
+                                 */
+                                if(customerIsAlreadyOnboarded(it)){
+
+                                    fetchAuthToken(onSuccess = {
+                                        viewModelScope.launch {
+                                            val clientId =
+                                                dataStoreManager.getPreferenceValue(PreferencesKeys.CLIENT_ID)
+                                            val clientSecret =
+                                                dataStoreManager.getPreferenceValue(PreferencesKeys.CLIENT_SECRET)
+
+                                            val userMobileNumber=dataStoreManager.getPreferenceValue(PreferencesKeys.USER_MOBILE_NUMBER)
+                                            Log.d("DATA_SDK", "handleRegistrationButtonClicks: ${clientId} ${clientSecret} ${userMobileNumber}")
+                                            sendToSDK(
+                                                type.context,
+                                                type.launcher,
+                                                DataForCardSDK(
+                                                    jwtToken = it?.accessToken,
+                                                    clientID = clientId,
+                                                    clientSecret = clientSecret.toString(),
+                                                    deviceChanged = false,
+                                                    userMobileNumber = userMobileNumber.toString()
+                                                ),
+                                            )
+                                        }
+                                    }, onFailure = {
+
+                                    })
+                                }
+                            }
                         })
-                    }
+
 
 
                 }
@@ -990,7 +973,7 @@ class RegistrationViewModel @Inject constructor(
 
 
 
-    fun fetctAuthToken(onSuccess: (AuthResponse?) -> Unit, onFailure: (String) -> Unit) {
+    fun fetchAuthToken(onSuccess: (AuthResponse?) -> Unit, onFailure: (String) -> Unit) {
 
         viewModelScope.launch {
             val deviceId = dataStoreManager.getPreferenceValue(PreferencesKeys.ANDROID_ID)
@@ -1165,7 +1148,7 @@ class RegistrationViewModel @Inject constructor(
                     }
 
                 },
-                onFailure = {_,msg,_->
+                onFailure = { _, msg, _->
 
                     try {
                         val errJsonObj = JSONObject(msg)
@@ -1219,7 +1202,7 @@ class RegistrationViewModel @Inject constructor(
     }
 
 
-    private fun callVerifySelfSignInAPi(onSuccess: () -> Unit) {
+    private fun callVerifySelfSignInAPi(onSuccess: () -> Unit,onFailure: (String) -> Unit={}) {
         viewModelScope.launch {
             val deviceId = dataStoreManager.getPreferenceValue(PreferencesKeys.ANDROID_ID)
             val data = registrationState.value
@@ -1255,6 +1238,38 @@ class RegistrationViewModel @Inject constructor(
                 }
                 onSuccess()
             }
+                , onFailure = {_,msg,_->
+                    try {
+                        val errJsonObj = JSONObject(msg)
+                        Log.d("ERR", "callStatusCheckApi: ${errJsonObj}")
+                        val data=errJsonObj.getString("ResponseData")
+                        Log.d("ERR", "callStatusCheckApi: ${data}")
+                        viewModelScope.launch {
+                            mapFunCBC<StatusCheckResponse>(data).collectLatest {
+                                val dataToCheck=it?.statusDesc
+                                Log.d("ERR", "callStatusCheckApi: ${dataToCheck}")
+
+                                    LoadingErrorEvent.helper.emit(LoadingErrorEvent.errorEncountered(UiText.DynamicString(dataToCheck?:"Something went wrong")))
+
+
+
+
+
+                            }
+                        }
+                        onFailure("")
+
+
+
+
+
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                        viewModelScope.launch {
+                            LoadingErrorEvent.helper.emit(LoadingErrorEvent.errorEncountered(UiText.DynamicString(e.message?:"")))
+                        }
+                    }
+                }
 
             )
         }

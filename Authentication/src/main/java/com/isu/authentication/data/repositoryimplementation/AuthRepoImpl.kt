@@ -177,11 +177,16 @@ class AuthRepoImpl(
             mapFun = {
                     resp->
                 val responseJson=Gson().toJson(resp)
-                var respReturn:VerifySelfSignInResponse?=null
-                mapFunCBC<VerifySelfSignInResponse>(responseJson).collectLatest {
-                    respReturn=it
+                val responseObject= JSONObject(responseJson)
+                val encrypted=responseObject.getString("ResponseData")
+                Log.d("RESP", "statusCheck:${responseObject}${encrypted} ")
+                var respToReturn: VerifySelfSignInResponse?=null
+                mapFunCBC<VerifySelfSignInResponse>(encrypted).collectLatest {
+                    respToReturn=it
+                    Log.d("RESP", "statusCheck:${respToReturn} ")
                 }
-                respReturn
+                Log.d("RESP", "statusCheck:${respToReturn} ")
+                respToReturn
             })
     }
 
@@ -199,14 +204,18 @@ class AuthRepoImpl(
 
 
             },
-            mapFun = {
-                    resp->
+            mapFun = {resp->
                 val responseJson=Gson().toJson(resp)
-                var respReturn:ResenSignUpOtpResponse?=null
-                mapFunCBC<ResenSignUpOtpResponse>(responseJson).collectLatest {
-                    respReturn=it
+                val responseObject= JSONObject(responseJson)
+                val encrypted=responseObject.getString("ResponseData")
+                Log.d("RESP", "statusCheck:${responseObject}${encrypted} ")
+                var respToReturn: ResenSignUpOtpResponse?=null
+                mapFunCBC<ResenSignUpOtpResponse>(encrypted).collectLatest {
+                    respToReturn=it
+                    Log.d("RESP", "statusCheck:${respToReturn} ")
                 }
-                respReturn
+                Log.d("RESP", "statusCheck:${respToReturn} ")
+                respToReturn
             }
         )
     }
@@ -359,14 +368,18 @@ class AuthRepoImpl(
                 }
 
 
-            }, mapFun = {
-                    resp->
+            }, mapFun = {resp->
                 val responseJson=Gson().toJson(resp)
-                var respReturn:CustomerInitiateResponse?=null
-                mapFunCBC<CustomerInitiateResponse>(responseJson).collectLatest {
-                    respReturn=it
+                val responseObject= JSONObject(responseJson)
+                val encrypted=responseObject.getString("ResponseData")
+                Log.d("RESP", "statusCheck:${responseObject}${encrypted} ")
+                var respToReturn: CustomerInitiateResponse?=null
+                mapFunCBC<CustomerInitiateResponse>(encrypted).collectLatest {
+                    respToReturn=it
+                    Log.d("RESP", "statusCheck:${respToReturn} ")
                 }
-                respReturn
+                Log.d("RESP", "statusCheck:${respToReturn} ")
+                respToReturn
             }
 
         )
@@ -389,11 +402,16 @@ class AuthRepoImpl(
             }, mapFun = {
                     resp->
                 val responseJson=Gson().toJson(resp)
-                var respReturn:ProfileDetailsFetchForBulkResponse?=null
-                mapFunCBC<ProfileDetailsFetchForBulkResponse>(responseJson).collectLatest {
-                    respReturn=it
+                val responseObject= JSONObject(responseJson)
+                val encrypted=responseObject.getString("ResponseData")
+                Log.d("RESP", "statusCheck:${responseObject}${encrypted} ")
+                var respToReturn: ProfileDetailsFetchForBulkResponse?=null
+                mapFunCBC<ProfileDetailsFetchForBulkResponse>(encrypted).collectLatest {
+                    respToReturn=it
+                    Log.d("RESP", "statusCheck:${respToReturn} ")
                 }
-                respReturn
+                Log.d("RESP", "statusCheck:${respToReturn} ")
+                respToReturn
             }
 
         )

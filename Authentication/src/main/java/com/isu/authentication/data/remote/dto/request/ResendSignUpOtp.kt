@@ -15,5 +15,5 @@ data class ResendSignUpOtp(
     @SerializedName("mobileNumber")
     val mobileNumber: String?, // 6390055440
     @SerializedName("otpRefId")
-    val otpRefId: Int?, // 11586
+    val otpRefId: String?, // 11586
 )
