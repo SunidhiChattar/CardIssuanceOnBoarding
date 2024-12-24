@@ -550,7 +550,19 @@ class RegistrationViewModel @Inject constructor(
                                             )
                                         }
                                     }, onFailure = {
+                                        Log.d("FAIL_AUTH", "handleRegistrationButtonClicks: ${it}")
+                                        if(it.lowercase().contains("device id not".toRegex())){
+                                            viewModelScope.launch {
+                                                val clientId =
+                                                    dataStoreManager.getPreferenceValue(PreferencesKeys.CLIENT_ID)
+                                                val clientSecret =
+                                                    dataStoreManager.getPreferenceValue(PreferencesKeys.CLIENT_SECRET)
 
+                                                val userMobileNumber=dataStoreManager.getPreferenceValue(PreferencesKeys.USER_MOBILE_NUMBER)
+                                                sendToSDK(type.context,type.launcher,DataForCardSDK(clientID = clientId, clientSecret = clientSecret.toString(), userMobileNumber = userMobileNumber.toString(), deviceChanged = true))
+                                            }
+
+                                        }
                                     })
 
                                 }else {
@@ -618,7 +630,19 @@ class RegistrationViewModel @Inject constructor(
                                           )
                                       }
                                   }, onFailure = {
+                                      Log.d("FAIL_AUTH", "handleRegistrationButtonClicks: ${it}")
+                                                if(it.lowercase().contains("device id not".toRegex())){
+                                                    viewModelScope.launch {
+                                                        val clientId =
+                                                            dataStoreManager.getPreferenceValue(PreferencesKeys.CLIENT_ID)
+                                                        val clientSecret =
+                                                            dataStoreManager.getPreferenceValue(PreferencesKeys.CLIENT_SECRET)
 
+                                                        val userMobileNumber=dataStoreManager.getPreferenceValue(PreferencesKeys.USER_MOBILE_NUMBER)
+                                                        sendToSDK(type.context,type.launcher,DataForCardSDK(clientID = clientId, clientSecret = clientSecret.toString(), userMobileNumber = userMobileNumber.toString(), deviceChanged = true))
+                                                    }
+
+                                                }
                                   })
                               }
                           }
@@ -1013,6 +1037,7 @@ class RegistrationViewModel @Inject constructor(
                     onFailure("Not authorized")
                 }
             }, onFailure = { _, msg, _ ->
+                Log.d("FAIL_AUTH", "fetchAuthToken: ${msg}")
                 onFailure(msg)
             })
         }
