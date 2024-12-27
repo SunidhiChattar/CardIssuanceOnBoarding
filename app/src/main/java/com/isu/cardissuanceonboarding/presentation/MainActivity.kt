@@ -207,9 +207,7 @@ class MainActivity : FragmentActivity() {
 
 
             // Display dialogs based on ViewModel states
-
-
-                if (!inAppViewModel.showDialogue.value&& !showInvalidDataDialog.value) {
+                if (!inAppViewModel.showDialogue.value && !showInvalidDataDialog.value) {
                     scope = rememberCoroutineScope()
 
                     CardIssuanceTheme(darkTheme = false) {

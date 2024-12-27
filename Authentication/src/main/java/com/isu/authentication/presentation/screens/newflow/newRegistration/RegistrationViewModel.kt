@@ -615,8 +615,8 @@ class RegistrationViewModel @Inject constructor(
                                           val clientSecret =
                                               dataStoreManager.getPreferenceValue(PreferencesKeys.CLIENT_SECRET)
 
-                                          val userMobileNumber=dataStoreManager.getPreferenceValue(PreferencesKeys.USER_MOBILE_NUMBER)
-                                          Log.d("DATA_SDK", "handleRegistrationButtonClicks: ${clientId} ${clientSecret} ${userMobileNumber}")
+                                          val userMobileNumber = dataStoreManager.getPreferenceValue(PreferencesKeys.USER_MOBILE_NUMBER)
+                                          Log.d("DATA_SDK", "handleRegistrationButtonClicks: $clientId ${clientSecret} ${userMobileNumber}")
                                           sendToSDK(
                                               type.context,
                                               type.launcher,
@@ -1187,7 +1187,7 @@ class RegistrationViewModel @Inject constructor(
                                 if(onFailure!=null){
                                     onFailure(it)
                                 }else{
-                                    LoadingErrorEvent.helper.emit(LoadingErrorEvent.errorEncountered(UiText.DynamicString(dataToCheck?:"Something went wrong")))
+//                                    LoadingErrorEvent.helper.emit(LoadingErrorEvent.errorEncountered(UiText.DynamicString(dataToCheck?:"Something went wrong")))
                                 }
 
 
