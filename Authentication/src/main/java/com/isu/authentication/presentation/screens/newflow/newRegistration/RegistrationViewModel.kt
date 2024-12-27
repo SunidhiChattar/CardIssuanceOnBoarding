@@ -1,5 +1,4 @@
 package com.isu.authentication.presentation.screens.newflow.newRegistration
-
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -57,6 +56,7 @@ import com.isu.common.navigation.AuthenticationScreens
 import com.isu.common.navigation.NavigationEvent
 import com.isu.common.navigation.ProfileScreen
 import com.isu.common.utils.GlobalVariables
+import com.isu.common.utils.Logger
 import com.isu.common.utils.UiText
 import com.isu.common.utils.Validation
 import com.isu.common.utils.datastore.DataStoreManager
@@ -370,9 +370,9 @@ class RegistrationViewModel @Inject constructor(
                             })
 
                         }else {
-                            viewModelScope.launch {
-                                ShowSnackBarEvent.helper.emit(ShowSnackBarEvent.show(SnackBarType.ErrorSnackBar,UiText.DynamicString("Invalid response")))
-                            }
+//                            viewModelScope.launch {
+//                                ShowSnackBarEvent.helper.emit(ShowSnackBarEvent.show(SnackBarType.ErrorSnackBar,UiText.DynamicString("Invalid response")))
+//                            }
                         }
                     }
 
@@ -505,19 +505,19 @@ class RegistrationViewModel @Inject constructor(
             is RegistrationButtonType.KycOtpGenerationButton -> {
 
                 if (allKycScreenValid()) {
-                    Log.d("OTP_VERIFY", "handleRegistrationButtonClicks: ")
+                    Logger.d("allKycScreenValid")
                     customerOnBoardingAPI(onSuccess = {
                             otpRefID.value=it?.data?.otpRefId?:"048984"
-                            Log.d("OTP_VERIFY", "handleRegistrationButtonClicks: ")
-                            /**
+                            Logger.d("customerOnBoardingAPISuccess")
+                        /**
                              * here statusCheck is called
                              * to check if customer is directly onBoarded i.e. SUCCESS 0 Scenario
                              * or OTP verification is required i.e.
                              * else
                              */
                             callStatusCheckApi {
+                                Logger.d("callStatusCheckApiSuccess")
 
-                                Log.d("OTP_VERIFY", "handleRegistrationButtonClicks: ")
                                 /**
                                  * if customer is directly onBoarded
                                  * i.e SUCCESS 0
@@ -525,9 +525,10 @@ class RegistrationViewModel @Inject constructor(
                                  * send to card SDK
                                  */
                                 if(customerIsAlreadyOnboarded(it)){
-                                    Log.d("OTP_VERIFY", "handleRegistrationButtonClicks: if")
+                                    Logger.d("customerIsAlreadyOnboarded = true")
                                     fetchAuthToken(onSuccess = {
                                         viewModelScope.launch {
+                                            Logger.d("fetchAuthToken = Success")
 
 
                                             val clientId =
@@ -536,7 +537,6 @@ class RegistrationViewModel @Inject constructor(
                                                 dataStoreManager.getPreferenceValue(PreferencesKeys.CLIENT_SECRET)
 
                                             val userMobileNumber=dataStoreManager.getPreferenceValue(PreferencesKeys.USER_MOBILE_NUMBER)
-                                            Log.d("DATA_SDK", "handleRegistrationButtonClicks: ${clientId} ${clientSecret} ${userMobileNumber}")
                                             sendToSDK(
                                                 type.context,
                                                 type.launcher,
@@ -550,13 +550,14 @@ class RegistrationViewModel @Inject constructor(
                                             )
                                         }
                                     }, onFailure = {
-                                        Log.d("FAIL_AUTH", "handleRegistrationButtonClicks: ${it}")
+                                        Logger.d("fetchAuthToken = failure")
                                         if(it.lowercase().contains("device id not".toRegex())){
                                             viewModelScope.launch {
                                                 val clientId =
                                                     dataStoreManager.getPreferenceValue(PreferencesKeys.CLIENT_ID)
                                                 val clientSecret =
                                                     dataStoreManager.getPreferenceValue(PreferencesKeys.CLIENT_SECRET)
+                                                Logger.d("fetchAuthToken = device id not")
 
                                                 val userMobileNumber=dataStoreManager.getPreferenceValue(PreferencesKeys.USER_MOBILE_NUMBER)
                                                 sendToSDK(type.context,type.launcher,DataForCardSDK(clientID = clientId, clientSecret = clientSecret.toString(), userMobileNumber = userMobileNumber.toString(), deviceChanged = true))
@@ -572,12 +573,16 @@ class RegistrationViewModel @Inject constructor(
                                      * page
                                      */
                                     if(needOtpVerification(it)){
-                                        Log.d("OTP_VERIFY", "handleRegistrationButtonClicks:else ")
+                                        Logger.d("needOtpVerification = true")
                                         viewModelScope.launch{
+                                            Logger.d("PhoneVerificationScreen = navigate")
+
                                             NavigationEvent.helper.navigateTo(AuthenticationScreens.PhoneVerificationScreen)
                                         }
                                     }else{
                                         viewModelScope.launch{
+                                            Logger.d("needOtpVerification = false")
+
                                             ShowSnackBarEvent.helper.emit(ShowSnackBarEvent.show(SnackBarType.ErrorSnackBar,UiText.DynamicString(
                                                 it.userDetails?.statusDesc?:"Invalid Response"
                                             )))
@@ -886,14 +891,15 @@ class RegistrationViewModel @Inject constructor(
 
             val packageManager: PackageManager = context.packageManager
             val jsonStringData= Gson().toJson(data)
-            Log.d("DATA_TO_ONBOARD", "sendToOnBoardingSDK: ${jsonStringData}")
-
+            Logger.d("Inside sendToSdk")
             val intent = packageManager.getLaunchIntentForPackage("com.isu.cardissuance")?.apply {
                 // Add custom data to the intent
                 putExtra("data", jsonStringData)
             }
             intent?.addCategory(Intent.CATEGORY_LAUNCHER)
             if(intent!=null){
+                Logger.d("Intent is not null")
+
                 launcherForCardSDK.launch(intent)
             }else{
                 Toast.makeText(context, "Intent was null", Toast.LENGTH_SHORT).show()
